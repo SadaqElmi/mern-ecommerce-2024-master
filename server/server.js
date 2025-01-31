@@ -17,15 +17,12 @@ const commonFeatureRouter = require("./routes/common/feature-routes");
 
 //create a database connection -> u can also
 //create a separate file for this and then import/use that file here
-const username = "Sadaq"; // your Atlas username
-const password = "Sadaq123"; // your Atlas password
-const dbName = "copy"; // your database name
-
-const uri = `mongodb+srv://${username}:${password}@cluster0.mongodb.net/${dbName}?retryWrites=true&w=majority`;
+const atlasConnectionString =
+  "mongodb+srv://Sadaq:Sadaq123@sadaq.gbakuer.mongodb.net/?retryWrites=true&w=majority&appName=Sadaq";
 
 mongoose
-  .connect(uri)
-  .then(() => console.log("MongoDB connected"))
+  .connect(atlasConnectionString)
+  .then(() => console.log("MongoDB Atlas connected"))
   .catch((error) => console.log(error));
 //mongoose
 //  .connect("mongodb://localhost:27017/copy")
